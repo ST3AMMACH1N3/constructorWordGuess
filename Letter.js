@@ -1,5 +1,5 @@
 function Letter(char) {
-    this.char = char;
+    this.char = char.toLowerCase();
     this.beenGuessed = false;
 
     this.display = function() {
