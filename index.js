@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const Word = require('./Word');
 let currentWord, words, unusedWords, guessesLeft;
+let guesses = [];
 
 function chooseWord() {
     if (unusedWords.length < 1) {
@@ -39,6 +40,7 @@ function playAgain() {
 }
 
 function playRound() {
+    guesses = [];
     guessesLeft = 10;
     chooseWord()
 }
@@ -62,6 +64,13 @@ function takeTurn() {
             }
         }
     ]).then((response) => {
+        if (guesses.includes(response.guess)) {
+            console.log(`\nYou've already guessed ${response.guess}`);
+            takeTurn();
+            return;
+        } else {
+            guesses.push(response.guess);
+        }
         if (currentWord.checkChar(response.guess)) {
             console.log("\nCorrect!");
             if (currentWord.display().includes("_")) {
