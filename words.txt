@@ -1,0 +1,6 @@
+Javascript
+Jquery
+HTML
+CSS
+Node
+Inquirer

@@ -15,9 +15,13 @@ function Word(word) {
     }
 
     this.checkChar = function(char) {
+        let found = false;
         this.letters.forEach(elem => {
-            elem.checkChar(char);
-        })
+            if (elem.checkChar(char)) {
+                found = true;
+            }
+        });
+        return found;
     }
 
 }

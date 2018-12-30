@@ -11,6 +11,7 @@ function Letter(char) {
 
     this.checkChar = function(character) {
         this.beenGuessed = (this.char === character) ? true : this.beenGuessed;
+        return (this.char === character);
     }
 }
 
